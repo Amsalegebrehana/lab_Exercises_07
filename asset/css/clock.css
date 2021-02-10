@@ -1,0 +1,66 @@
+#analogClock .second {
+    height: 0px;
+    width: 140px;
+    border-top: 2px solid #E83151;
+  }
+  
+  #analogClock .hour {
+    height: 0px;
+    width: 75px;
+    border-top: 8px solid #CCC;
+  }
+  
+  #analogClock .minute {
+    height: 0px;
+    width: 140px;
+    border-top: 4px solid #CCC;
+  }
+  #analogClock > * {
+    grid-area: 1 / 1;
+  }
+  #analogClock {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  #analogClock > * {
+    grid-area: 1 / 1;
+  }
+  
+  #analogClock .second,
+  #analogClock .hour,
+  #analogClock .minute {
+    position: relative;
+    transform-origin: left;
+  }
+  
+  #analogClock .second {
+    height: 0px;
+    width: 140px;
+    border-top: 2px solid #E83151;
+  
+    left: 70px;
+    top: 0px;
+    transform: rotate(45deg);
+  }
+  
+  #analogClock .hour {
+    height: 0px;
+    width: 75px;
+    border-top: 8px solid #CCC;
+  
+    left: 40px;
+    top: 0px;
+    transform: rotate(135deg);
+  }
+  
+  #analogClock .minute {
+    height: 0px;
+    width: 140px;
+    border-top: 4px solid #CCC;
+  
+    left: 70px;
+    top: 0px;
+    transform: rotate(300deg);
+  }
