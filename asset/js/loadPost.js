@@ -45,7 +45,7 @@ function loadPost() {
       // Assign it to the DIV
       postDiv.innerHTML = output;
     }
-  };
+  }
 
   // Send the Request
   xhr.send();

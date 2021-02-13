@@ -8,12 +8,20 @@
     height: 0px;
     width: 75px;
     border-top: 8px solid #CCC;
+    left: 40px;
+  top: 0px;
+
+  transform: rotate(var(--hours));
   }
   
   #analogClock .minute {
     height: 0px;
     width: 140px;
     border-top: 4px solid #CCC;
+    left: 70px;
+  top: 0px;
+
+  transform: rotate(var(--minutes));
   }
   #analogClock > * {
     grid-area: 1 / 1;
@@ -33,6 +41,7 @@
   #analogClock .minute {
     position: relative;
     transform-origin: left;
+    border-radius: 10px;
   }
   
   #analogClock .second {
@@ -63,4 +72,13 @@
     left: 70px;
     top: 0px;
     transform: rotate(300deg);
+  }
+  #analogClock .center {
+    width: 10px;
+    height: 10px;
+    background-color: #E83151;
+    border: 5px solid #FFF;
+    border-radius: 50%;
+    position: relative;
+    z-index: 100;
   }
