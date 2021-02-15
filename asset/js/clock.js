@@ -12,19 +12,20 @@
   var clockElements = makeClockElements("p", "p", "p");
 
   function initClock() {
-    var now = new Date();
-    var hour = now.getHours();
-    var minute = now.getMinutes();
-    var second = now.getSeconds(); //360 deg / 60 sec
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    //360 deg / 60 sec
 
     //30 deg= 360fdrg/12 hrs
-    var hourDegrees = hour * 30 + 0.5 * minute; //increase slightly every degree
-    var minuteDegrees = minute * 6 + 0.1 * second; //increase slightly every second
-    var secondDegrees = second * 6; // every sec times by six inorder to get the angle
+    var hdeg = h * (360/12) + (30/60) * m; //increase slightly every degree
+    var mdeg = m *  (360/60) + (6/60) * s; //increase slightly every second
+    var sdeg = s * (360/60); // every sec times by six inorder to get the angle
 
-    clockElements[0].style.transform = "rotate(" + hourDegrees + "deg)";
-    clockElements[1].style.transform = "rotate(" + minuteDegrees + "deg)";
-    clockElements[2].style.transform = "rotate(" + secondDegrees + "deg)";
+    clockElements[0].style.transform = "rotate(" + hdeg + "deg)";
+    clockElements[1].style.transform = "rotate(" + mdeg + "deg)";
+    clockElements[2].style.transform = "rotate(" + sdeg + "deg)";
   }
 
   initClock();
