@@ -1,84 +1,92 @@
-#analogClock .second {
-    height: 0px;
-    width: 140px;
-    border-top: 2px solid #E83151;
-  }
-  
-  #analogClock .hour {
-    height: 0px;
-    width: 75px;
-    border-top: 8px solid #CCC;
-    left: 40px;
-  top: 0px;
+#clock {
+  /* color: rgb(57, 255, 189); */
+  position: relative;
+  width: 45em;
+  height: 45em;
+  line-height: 1.5em;
+  margin: 3em auto;
+ 
+  box-shadow: inset 0.5em 0.25em 0.5em #0005,
+    0 0 0.0625em 0.5em rgb(179, 170, 170), 0 0 0.0625em 0.5625em #000;
+  /* background-color: black; */
+  background: url(../images/clock.png);
+  background-size: 45em;
+  background-repeat: no-repeat;
+  background-color: white;
+}
 
-  transform: rotate(var(--hours));
-  }
-  
-  #analogClock .minute {
-    height: 0px;
-    width: 140px;
-    border-top: 4px solid #CCC;
-    left: 70px;
-  top: 0px;
+#clock *,
+#clock *:before,
+#clock *:after {
+  box-sizing: border-box;
+  background-clip: padding-box;
+}
 
-  transform: rotate(var(--minutes));
-  }
-  #analogClock > * {
-    grid-area: 1 / 1;
-  }
-  #analogClock {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-  }
-  
-  #analogClock > * {
-    grid-area: 1 / 1;
-  }
-  
-  #analogClock .second,
-  #analogClock .hour,
-  #analogClock .minute {
-    position: relative;
-    transform-origin: left;
-    border-radius: 10px;
-  }
-  
-  #analogClock .second {
-    height: 0px;
-    width: 140px;
-    border-top: 2px solid #E83151;
-  
-    left: 70px;
-    top: 0px;
-    transform: rotate(45deg);
-  }
-  
-  #analogClock .hour {
-    height: 0px;
-    width: 75px;
-    border-top: 8px solid #CCC;
-  
-    left: 40px;
-    top: 0px;
-    transform: rotate(135deg);
-  }
-  
-  #analogClock .minute {
-    height: 0px;
-    width: 140px;
-    border-top: 4px solid #CCC;
-  
-    left: 70px;
-    top: 0px;
-    transform: rotate(300deg);
-  }
-  #analogClock .center {
-    width: 10px;
-    height: 10px;
-    background-color: #E83151;
-    border: 5px solid #FFF;
-    border-radius: 50%;
-    position: relative;
-    z-index: 100;
-  }
+#clock:before,
+#clock:after {
+  position: absolute;
+  width: 2em;
+  text-align: center;
+}
+
+/* ALL elements at center are represented by p tag inorder to iterate them in forloop */
+#clock p {
+  position: absolute;
+  height: 30em;
+}
+
+/*...minute */
+#clock p {
+  z-index: 2;
+  top: 4.2em;
+  left: 22.85em;
+  width: 0.33em;
+  background-color: rgb(10, 10, 10);
+  border: solid transparent;
+  border-width: 0.8em 0 9em;
+  border-radius: 10%;
+}
+/* hour */
+#clock p:first-of-type {
+  border-width: 12.8em 0 4em;
+  border-radius: 190%;
+  width: 0.8em;
+  background-color: rgb(12, 11, 11);
+}
+/* second */
+#clock p:last-of-type {
+  border-width: 0.3em 0 9.9em;
+  border-radius: 20%;
+  width: 0.15em;
+  background-color: rgb(7, 7, 7);
+}
+
+#clock p:last-of-type:before,
+#clock p:last-of-type:after {
+  content: "";
+  position: absolute;
+}
+
+#clock p:last-of-type:before {
+  top: 4.2em;
+  left: -0.375em;
+  width: 1em;
+  height: 1em;
+  background: #000;
+}
+
+#clock p:last-of-type:after {
+  top: 4.35em;
+  left: -0.125em;
+  width: 0.5em;
+  height: 0.5em;
+  background: rgb(22, 22, 22);
+}
+#clock:after {
+  content: "●";
+  top: 5.2em;
+  left: 5.70em;
+  font-size: 48px;
+  z-index: 4;
+  font-weight: 500;
+}

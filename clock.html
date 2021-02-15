@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Analogue Clock</title>
-    <link rel="stylesheet" href="./asset/css/clock_style.css" />
+    <link rel="stylesheet" href="./asset/css/clock.css" />
 
     <link
       rel="stylesheet"
@@ -15,14 +15,25 @@
     />
   </head>
   <body>
-    <div id="analogClock" >
-        <img src="./asset/images/clock.png" alt="">
-        <!--clock hands creating-->
-        <div class="second"></div>
-        <div class="hour"></div>
-        <div class="minute"></div>
+    <div class="ui top attached tabular menu">
+      <a class="item" href="index.html"> Home </a>
+      <a class="item" href="api.html"> API </a>
+      <a class="active item" href="clock.html"> Clock </a>
+      <a class="item" href="gallery.html"> Gallery </a>
+      <div class="right menu">
+        <div class="item">
+          <div class="ui transparent icon input">
+            <input
+              type="text"
+              placeholder="Search users..."
+              data-np-checked="1"
+            />
+            <i class="search link icon"></i>
+          </div>
+        </div>
+      </div>
     </div>
-    
+    <div id="clock"></div>
     <script src="./asset/js/clock.js"></script>
   </body>
 </html>

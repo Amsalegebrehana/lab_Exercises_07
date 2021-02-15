@@ -1,25 +1,32 @@
-// UI Variables 
-const timerDemo = document.getElementById("timerDemo");
-//timer 
-function startTime() {
-    //retrieve date 
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    //get the AM / PM value 
-    let am_pm = h > 12 ? 'PM' : 'AM';
-    // Convert the hour to 12 format 
-    h = h % 12 || 12;
-    // add zero 
-    m = addZero(m);
-    s = addZero(s);
-    // Assign to the UI [p]
-    timerDemo.innerHTML = `${h} : ${addZero(m)} : ${addZero(s)} ${am_pm }`;
-    setTimeout(startTime, 500);
-}
+//d is document
+(function (d) {
+  function makeClockElements(tags) {
+    var clock = d.getElementById("clock"),
+      result = [];
+    for (var i = 0; (tagName = arguments[i]); i++) {
+      var element = clock.appendChild(d.createElement(tagName));
+      if (tagName === "p") result.push(element);
+    }
+    return result;
+  }
+  var clockElements = makeClockElements("p", "p", "p");
 
-function addZero(i) {
-    if (i < 10) { i = "0" + i } // add zero in front of numbers < 10
-    return i;
-}
+  function initClock() {
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds(); //360 deg / 60 sec
+
+    //30 deg= 360fdrg/12 hrs
+    var hourDegrees = hour * 30 + 0.5 * minute; //increase slightly every degree
+    var minuteDegrees = minute * 6 + 0.1 * second; //increase slightly every second
+    var secondDegrees = second * 6; // every sec times by six inorder to get the angle
+
+    clockElements[0].style.transform = "rotate(" + hourDegrees + "deg)";
+    clockElements[1].style.transform = "rotate(" + minuteDegrees + "deg)";
+    clockElements[2].style.transform = "rotate(" + secondDegrees + "deg)";
+  }
+
+  initClock();
+  setInterval(initClock, 1000);
+})(document);
