@@ -1,10 +1,10 @@
 // UI Vars
 const postDiv3 = document.getElementById("thePosts");
 postDiv3.innerHTML = `<div class="ui segment">
-<p></p>
 <div class="ui active inverted dimmer">
-    <div class="ui loader"></div>
+  <div class="ui text loader">Loading</div>
 </div>
+<p></p>
 </div>`;
 
 let page = 1;
